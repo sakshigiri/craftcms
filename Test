@@ -1,0 +1,37 @@
+
+Subject: Assistance Required: 504 Gateway Timeout on Admin Console Post-Migration to AWS ECS Fargate
+
+Dear Craft CMS Support Team,
+
+I hope you are doing well.
+
+We are in the process of migrating our website, intact.ca, to an AWS-based architecture. The application is set to run on AWS ECS Fargate, and we are encountering an issue specifically with the admin console. Below are the details of the problem:
+
+1. We have successfully created a Docker image for the website and its admin console.
+
+
+2. When running the image locally, both the website and the admin console function as expected.
+
+
+3. After pushing the same image to AWS ECR and running it in ECS Fargate, we experience the following issue:
+
+The public-facing website works without any problems.
+
+However, attempting to access the admin console (website.com/CMS/login) results in a 504 Gateway Timeout error.
+
+Our CP_TRIGGER environment variable is set to CMS.
+
+
+
+4. Upon investigation with AWS Support, we identified that the error originates from the application side, specifically due to an upstream timeout in PHP-FPM.
+
+
+5. Interestingly, when making the same request using a host header that specifies the CloudFront-attached DNS, the request returns a 200 response instead of a timeout.
+
+
+
+At this point, we suspect that there might be some configuration or networking behavior within Craft CMS that is affecting how the admin console responds when deployed on ECS Fargate.
+
+Could you please provide any insights or guidance on this issue? Are there any known configurations or settings that might be causing this behavior in an AWS-hosted environment?
+
+Looking forward to your assistance.
