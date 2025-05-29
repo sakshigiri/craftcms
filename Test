@@ -16,3 +16,18 @@
 {% else %}
   <p>No results found.</p>
 {% endif %}<!-- Make sure this file is saved as 'templates/search.twig' so Craft can auto-route the search page -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const explore = document.querySelector(".explore-link");
+
+  if (explore && explore.nextElementSibling?.classList.contains("main-nav")) {
+    explore.addEventListener("click", function (e) {
+      // No need for e.preventDefault() since it's not an anchor
+      const nav = explore.nextElementSibling;
+      nav.classList.toggle("open");
+    });
+  }
+});
+</script>
